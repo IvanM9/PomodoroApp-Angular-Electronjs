@@ -1,0 +1,53 @@
+<div class="container mt-md-5">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6 card text-center">
+            <h1 class="card-header">Configuraciones </h1>
+            <div class="card-body">
+                <div class="row my-3">
+                    <div class=" card-title col-6 ">
+                        <h4>Tiempo de trabajo</h4>
+                    </div>
+                    <div class=" card-text col-6">
+                        <input type="number" class="text-center" [value]="tiempoTrabajo" (input)="tiempoTrabajo = trabajo.value" #trabajo>
+                        <small class=" ms-2">Min</small>
+
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class=" card-title col-6 ">
+                        <h4>Tiempo de descanso</h4>
+                    </div>
+                    <div class=" card-text col-6">
+                        <input type="number" class=" text-center" [value]="tiempoDescanso" (input)="tiempoDescanso = descanso.value" #descanso>
+                        <small class=" ms-2">Min</small>
+
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-6">
+
+                        <button type="button" class=" btn btn-outline-primary" role="application" id="liveToastBtn" (click)="actualizarTiempos()"> Actualizar
+                        </button>
+                    </div>
+                    <div class="col-6">
+
+                        <button class=" btn btn-outline-secondary" routerLink="/" role="application" > Volver
+                        </button>
+                    </div>
+                    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <strong class="me-auto">Pomodoro</strong>
+                                <small>Justo ahora</small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                Se ha actualizado los tiempos del temporizador.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
