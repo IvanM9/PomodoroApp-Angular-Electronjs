@@ -47,9 +47,7 @@ export class StartComponent implements OnInit {
         }
       }
     }
-    else {
-      this.modo = true;
-    }
+    this.modo = true;
     clearTimeout(this.intervalId);
     this.descansoLargo = this.estado == 'trabajo' ? this.descansoLargo + 1 : this.descansoLargo;
     sessionStorage.setItem('descansoLargo', this.descansoLargo);

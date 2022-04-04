@@ -10,10 +10,8 @@ let appWin;
 
 let createWindow = () => {
     appWin = new BrowserWindow({
-        width: 900,
-        height: 600,
         title: "Pomodoro",
-        resizable: true,
+        resizable: false,
         webPreferences: {
             contextIsolation: false,
             nodeIntegration: true
@@ -24,7 +22,7 @@ let createWindow = () => {
     
     appWin.setMenu(null);
     
-    appWin.webContents.openDevTools();
+    // appWin.webContents.openDevTools();
     
     appWin.on("closed", () => {
         appWin = null;
