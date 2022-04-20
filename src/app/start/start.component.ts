@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ElectronStoreService } from '../electron-store.service';
 
 @Component({
   selector: 'app-start',
@@ -17,16 +16,16 @@ export class StartComponent implements OnInit {
   intervalId: any;
   descansoLargo: any = 0;
 
-  constructor(private electronStoreService: ElectronStoreService) {
-    this.tiempoTrabajo = this.electronStoreService.get('tiempoTrabajo') ? this.electronStoreService.get('tiempoTrabajo') : 25;
-    this.tiempoDescanso = this.electronStoreService.get('tiempoDescanso') ? this.electronStoreService.get('tiempoDescanso') : 5;
+  constructor() {
+    this.tiempoTrabajo = localStorage.getItem('tiempoTrabajo') ? localStorage.getItem('tiempoTrabajo') : 25;
+    this.tiempoDescanso = localStorage.getItem('tiempoDescanso') ? localStorage.getItem('tiempoDescanso') : 5;
     this.descansoLargo = sessionStorage.getItem('descansoLargo') ? sessionStorage.getItem('descansoLargo') : 0;
     this.minutos = this.tiempoTrabajo;
   }
 
   ngOnInit(): void {
-    this.electronStoreService.set('tiempoTrabajo', this.tiempoTrabajo);
-    this.electronStoreService.set('tiempoDescanso', this.tiempoDescanso);
+    localStorage.setItem('tiempoTrabajo', this.tiempoTrabajo);
+    localStorage.setItem('tiempoDescanso', this.tiempoDescanso);
   }
 
   delay(delay: number) {
@@ -52,7 +51,7 @@ export class StartComponent implements OnInit {
     this.descansoLargo = this.estado == 'trabajo' ? this.descansoLargo + 1 : this.descansoLargo;
     sessionStorage.setItem('descansoLargo', this.descansoLargo);
     this.estado = this.estado == 'trabajo' ? 'descanso' : 'trabajo';
-    this.tiempoDescanso = this.descansoLargo % 4 == 0 ? 15 : this.electronStoreService.get('tiempoDescanso');
+    this.tiempoDescanso = this.descansoLargo % 4 == 0 ? 15 : localStorage.getItem('tiempoDescanso');
     this.minutos = this.estado === 'trabajo' ? this.tiempoTrabajo : this.tiempoDescanso;
     this.segundos = 0;
   }

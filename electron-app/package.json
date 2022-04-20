@@ -1,0 +1,17 @@
+{
+  "name": "electron-app",
+  "version": "1.0.0",
+  "description": "Aplicación Electron desarrollada con Angular",
+  "main": "main.js",
+  "scripts": {
+    "electron-build": "cd.. && ng build --output-path electron-app/dist/PomodoroApp --base-href . && cd electron-app && electron .",
+    "electron": "electron .",
+    "ejecutable": "npx electron-packager ./ pomodoroApp --platform=win32 --arch=x64"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^18.0.4",
+    "electron-packager": "^15.5.1"
+  }
+}

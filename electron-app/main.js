@@ -11,7 +11,7 @@ let appWin;
 let createWindow = () => {
     appWin = new BrowserWindow({
         title: "Pomodoro",
-        resizable: false,
+        resizable: true,
         webPreferences: {
             contextIsolation: false,
             nodeIntegration: true
