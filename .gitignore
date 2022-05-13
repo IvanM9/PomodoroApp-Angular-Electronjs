@@ -2,6 +2,8 @@
 
 # compiled output
 /dist
+/electron-app/dist
+/electron-app/pomodoroApp-win32-x64
 /tmp
 /out-tsc
 # Only exists if Bazel was run
